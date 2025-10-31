@@ -340,13 +340,14 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <HeroSection>
+      <HeroSection data-animate="hero">
         <HeroVideo 
           autoPlay 
           muted 
           loop 
           playsInline
           preload="auto"
+          data-animate="hero-video"
         >
           <source src="/videos/Video_AI_1.mp4" type="video/mp4" />
           Your browser does not support the video tag.
@@ -369,7 +370,7 @@ const Home: React.FC = () => {
         </Container>
       </HeroSection>
 
-      <FeaturesSection>
+      <FeaturesSection data-animate="features">
         
         <Container>
           <ScrollReveal ref={setScrollRevealRef(0)}>
@@ -378,6 +379,7 @@ const Home: React.FC = () => {
               onTouchStart={onTouchStart}
               onTouchMove={onTouchMove}
               onTouchEnd={onTouchEnd}
+              data-animate="carousel"
             >
               <CarouselTrack currentSlide={currentSlide}>
                 {carouselSlides.map((slide, index) => (
@@ -468,7 +470,7 @@ const Home: React.FC = () => {
       </FeaturesSection>
 
       {/* Новая независимая видео секция */}
-      <VideoSection ref={videoSectionRef}>
+      <VideoSection ref={videoSectionRef} data-animate="video-section">
         {isVideoSectionVisible && (
           <VideoSectionVideo 
             autoPlay 
@@ -476,6 +478,7 @@ const Home: React.FC = () => {
             loop 
             playsInline
             preload="none"
+            data-animate="video-content"
           >
             <source src="/videos/videoAI_2.mp4" type="video/mp4" />
             Your browser does not support the video tag.
@@ -489,7 +492,7 @@ const Home: React.FC = () => {
         </VideoSectionContent>
       </VideoSection>
 
-      <ProductsSection>
+      <ProductsSection data-animate="products">
         <Container>
           <ScrollReveal ref={setScrollRevealRef(7)}>
             {/* Карусель Featured Solutions */}
@@ -497,6 +500,7 @@ const Home: React.FC = () => {
               onTouchStart={onFeaturedTouchStart}
               onTouchMove={onFeaturedTouchMove}
               onTouchEnd={onFeaturedTouchEnd}
+              data-animate="featured-carousel"
             >
               <CarouselTrack currentSlide={currentFeaturedSlide}>
                 {featuredSlides.map((slide, index) => (
@@ -603,12 +607,12 @@ const Home: React.FC = () => {
       </ProductsSection>
 
       {/* Photo Gallery Section */}
-      <PhotoGallerySection ref={galleryRef}>
+      <PhotoGallerySection ref={galleryRef} data-animate="gallery">
         {isVisible && (
-          <PhotoStrip>
+          <PhotoStrip data-animate="photo-strip">
             {/* Первый набор изображений */}
             {galleryImages.map((image) => (
-              <PhotoItem key={`first-${image.id}`} className={`photo-${image.type}`}>
+              <PhotoItem key={`first-${image.id}`} className={`photo-${image.type}`} data-animate="photo-item">
                 <LazyImage
                   src={image.src}
                   alt={image.alt}
