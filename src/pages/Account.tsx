@@ -86,24 +86,12 @@ const Account: React.FC = () => {
 
   // Данные курсов иллюстрации из products.ts
   const testAccountCourses = products.map(product => {
-    const courseVideos = [];
-    
-    // Добавляем основное видео превью
-    if (product.video) {
-      courseVideos.push(product.video);
-    }
-    
-    // Добавляем дополнительные видео для премиум курсов
-    if (product.videos) {
-      courseVideos.push(...product.videos);
-    }
-    
     return {
       id: product.id,
       title: product.name,
       description: product.description,
       price: `$${product.price}`,
-      videos: courseVideos
+      videos: product.videos || [] // Используем только videos, без дублирования
     };
   });
 
@@ -396,7 +384,23 @@ const Account: React.FC = () => {
                         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                           <span style={{ color: '#718096', fontSize: '0.95rem' }}>Duration</span>
                           <span style={{ fontWeight: '600', color: '#2d3748' }}>
-                            {course.id <= 4 ? '18-42 min' : course.id <= 7 ? '38-54 min' : '28-60 min'}
+                            {course.id === 1 ? '5 min' : 
+                             course.id === 2 ? '7 min' : 
+                             course.id === 3 ? '8 min' : 
+                             course.id === 4 ? '10 min' : 
+                             course.id === 5 ? '12 min' : 
+                             course.id === 6 ? '15 min' : 
+                             course.id === 7 ? '18 min' : 
+                             course.id === 8 ? '22 min' : 
+                             course.id === 9 ? '25 min' : 
+                             course.id === 10 ? '28 min' : 
+                             course.id === 11 ? '32 min' : 
+                             course.id === 12 ? '35 min' : 
+                             course.id === 13 ? '24 min' : 
+                             course.id === 14 ? '28 min' : 
+                             course.id === 15 ? '32 min' : 
+                             course.id === 16 ? '36 min' : 
+                             course.id === 17 ? '40 min' : '30 min'}
                           </span>
                         </div>
                         <div style={{ display: 'flex', justifyContent: 'space-between' }}>

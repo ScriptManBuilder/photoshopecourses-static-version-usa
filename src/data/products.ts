@@ -31,109 +31,117 @@ export const getProductImages = (productId: number): string[] => {
   return [getProductImage(productId)];
 };
 
-// Helper function to get course video preview
+// Helper function to get course video preview (returns first video from course videos)
 export const getProductVideo = (productId: number): string | undefined => {
-  if (productId === 1) {
-    return "/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (1).mp4";
-  }
-  if (productId === 2) {
-    return "/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (2).mp4";
-  }
-  if (productId === 3) {
-    return "/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (3).mp4";
-  }
-  if (productId === 4) {
-    return "/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (4).mp4";
-  }
-  if (productId === 5) {
-    return "/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (5).mp4";
-  }
-  if (productId === 6) {
-    return "/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (6).mp4";
-  }
-  if (productId === 7) {
-    return "/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (7).mp4";
-  }
-  if (productId === 8) {
-    return "/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (8).mp4";
-  }
-  if (productId === 9) {
-    return "/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (9).mp4";
-  }
-  if (productId === 10) {
-    return "/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (10).mp4";
-  }
-  if (productId === 11) {
-    return "/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (11).mp4";
-  }
-  return undefined;
+  const videos = getProductVideos(productId);
+  return videos && videos.length > 0 ? videos[0] : undefined;
 };
 
 // Helper function to get course videos (for premium courses with multiple videos)
 export const getProductVideos = (productId: number): string[] | undefined => {
-  // Courses 5-7: 3 videos each
-  if (productId === 5) {
-    return [
-      "/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (12).mp4",
-      "/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (13).mp4",
-      "/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (14).mp4"
-    ];
-  }
+  // Существующие видео: 1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 13
+  
+  // Courses 1-5: 1 video each
+  if (productId === 1) return [`/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (1).mp4`];
+  if (productId === 2) return [`/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (2).mp4`];
+  if (productId === 3) return [`/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (3).mp4`];
+  if (productId === 4) return [`/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (4).mp4`];
+  if (productId === 5) return [`/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (5).mp4`];
+  
+  // Courses 6-8: 2 videos each
   if (productId === 6) {
     return [
-      "/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (15).mp4",
-      "/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (16).mp4",
-      "/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (17).mp4"
+      `/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (6).mp4`,
+      `/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (7).mp4`
     ];
   }
   if (productId === 7) {
     return [
-      "/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (18).mp4",
-      "/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (19).mp4",
-      "/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (20).mp4"
+      `/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (8).mp4`,
+      `/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (10).mp4`
+    ];
+  }
+  if (productId === 8) {
+    return [
+      `/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (11).mp4`,
+      `/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (13).mp4`
     ];
   }
   
-  // Courses 8-10: 5 videos each
-  if (productId === 8) {
-    return [
-      "/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (21).mp4",
-      "/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (22).mp4",
-      "/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (23).mp4",
-      "/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (24).mp4",
-      "/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (25).mp4"
-    ];
-  }
+  // Courses 9-11: 3 videos each
   if (productId === 9) {
     return [
-      "/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (15).mp4",
-      "/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (16).mp4",
-      "/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (17).mp4",
-      "/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (18).mp4",
-      "/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (19).mp4"
+      `/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (1).mp4`,
+      `/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (2).mp4`,
+      `/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (3).mp4`
     ];
   }
   if (productId === 10) {
     return [
-      "/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (20).mp4",
-      "/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (21).mp4",
-      "/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (22).mp4",
-      "/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (23).mp4",
-      "/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (24).mp4"
+      `/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (4).mp4`,
+      `/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (5).mp4`,
+      `/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (6).mp4`
+    ];
+  }
+  if (productId === 11) {
+    return [
+      `/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (7).mp4`,
+      `/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (8).mp4`,
+      `/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (10).mp4`
     ];
   }
   
-  // Course 11: 8 videos (premium - uses more videos from the course)
-  if (productId === 11) {
+  // Courses 12-15: 4 videos each
+  if (productId === 12) {
     return [
-      "/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (19).mp4",
-      "/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (20).mp4",
-      "/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (21).mp4",
-      "/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (22).mp4",
-      "/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (23).mp4",
-      "/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (24).mp4",
-      "/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (25).mp4",
-      "/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (26).mp4"
+      `/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (11).mp4`,
+      `/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (13).mp4`,
+      `/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (1).mp4`,
+      `/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (2).mp4`
+    ];
+  }
+  if (productId === 13) {
+    return [
+      `/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (3).mp4`,
+      `/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (4).mp4`,
+      `/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (5).mp4`,
+      `/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (6).mp4`
+    ];
+  }
+  if (productId === 14) {
+    return [
+      `/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (7).mp4`,
+      `/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (8).mp4`,
+      `/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (10).mp4`,
+      `/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (11).mp4`
+    ];
+  }
+  if (productId === 15) {
+    return [
+      `/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (13).mp4`,
+      `/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (1).mp4`,
+      `/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (2).mp4`,
+      `/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (3).mp4`
+    ];
+  }
+  
+  // Courses 16-17: 5 videos each
+  if (productId === 16) {
+    return [
+      `/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (4).mp4`,
+      `/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (5).mp4`,
+      `/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (6).mp4`,
+      `/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (7).mp4`,
+      `/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (8).mp4`
+    ];
+  }
+  if (productId === 17) {
+    return [
+      `/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (10).mp4`,
+      `/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (11).mp4`,
+      `/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (13).mp4`,
+      `/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (1).mp4`,
+      `/videos/Adobe Photoshop Basics for Beginners Khara Plicanic Skillshare (2).mp4`
     ];
   }
   
@@ -143,321 +151,464 @@ export const getProductVideos = (productId: number): string[] | undefined => {
 export const products: Product[] = [
   {
     id: 1,
-    name: "Adobe Photoshop Welcome & Setup",
-    price: 6.99,
+    name: "Photoshop Quick Start - Introduction",
+    price: 1.00,
     image: getProductImage(1),
     images: getProductImages(1),
     video: getProductVideo(1),
-    description: "Introduction to Adobe Photoshop with software installation and first creative project basics.",
-    detailedDescription: "Master the fundamentals of Adobe Photoshop. Learn software installation, understand basic interface navigation, and get started with your creative journey. Perfect foundation for aspiring designers.",
+    videos: getProductVideos(1),
+    description: "Quick introduction to Adobe Photoshop basics - perfect starter for absolute beginners.",
+    detailedDescription: "Get started with Adobe Photoshop. This quick start course includes 1 video module covering the very basics, software overview, and your first steps in Photoshop. Perfect for complete beginners.",
     category: "Photoshop Basics",
     features: [
-      "Adobe Photoshop installation guide",
-      "Creative Cloud setup", 
-      "First design project walkthrough",
-      "Basic interface introduction",
-      "Getting started guide"
+      "1 video module included",
+      "Quick Photoshop overview",
+      "Basic interface tour", 
+      "First steps guide",
+      "Essential tools introduction"
     ],
     specifications: {
-      "Duration": "3 minutes 27 seconds",
-      "Level": "Complete Beginner",
+      "Duration": "5 minutes",
+      "Videos": "1 module",
+      "Level": "Absolute Beginner",
       "Language": "English",
-      "Focus": "Photoshop Setup & Basics",
-      "Access": "6 months",
-      "Certificate": "Basic completion badge"
+      "Focus": "Quick Start",
+      "Access": "3 months"
     },
     inStock: true
   },
   {
     id: 2,
-    name: "Layers and Basic Tools",
-    price: 9.99,
+    name: "Adobe Photoshop Welcome & Setup",
+    price: 1.95,
     image: getProductImage(2),
     images: getProductImages(2),
     video: getProductVideo(2),
-    description: "Master Photoshop layers and essential tools for efficient design workflow and creative management.",
-    detailedDescription: "Deep dive into Photoshop layers with comprehensive training on layer types, blending modes, masks, and essential tools. Learn workspace organization, layer management, and efficient design workflow for professional creative development.",
-    category: "Photoshop Fundamentals",
+    videos: getProductVideos(2),
+    description: "Introduction to Adobe Photoshop with software installation and first creative project basics.",
+    detailedDescription: "Master the fundamentals of Adobe Photoshop. This starter course includes 1 video module covering software installation, basic interface navigation, and getting started with your creative journey. Perfect foundation for aspiring designers.",
+    category: "Photoshop Basics",
     features: [
-      "All layer types mastery",
-      "Essential tools techniques",
-      "Workspace organization basics",
-      "Blending modes understanding",
-      "Professional design practices"
+      "1 video module included",
+      "Adobe Photoshop installation guide",
+      "Creative Cloud setup", 
+      "First design project walkthrough",
+      "Basic interface introduction"
     ],
     specifications: {
-      "Duration": "6 minutes 43 seconds",
-      "Level": "Beginner",
-      "Focus": "Layers & Essential Tools",
-      "Topics": "Workflow, organization, blending",
-      "Access": "8 months",
-      "Support": "Community forum access"
+      "Duration": "7 minutes",
+      "Videos": "1 module",
+      "Level": "Complete Beginner",
+      "Language": "English",
+      "Focus": "Photoshop Setup & Basics",
+      "Access": "6 months"
     },
     inStock: true
   },
   {
     id: 3,
-    name: "Basic Image Adjustments",
-    price: 19.99,
-    image: getProductImage(3),
-    images: getProductImages(3),
-    video: getProductVideo(3),
-    description: "Learn essential Photoshop image adjustments for effective photo enhancement and color correction.",
-    detailedDescription: "Master Photoshop image adjustments with comprehensive training on brightness/contrast, levels, curves, and color balance. Learn professional techniques for effective photo enhancement and color correction.",
-    category: "Photo Editing",
+    name: "Layers and Basic Tools",
+    price: 6.99,
+    image: getProductImage(2),
+    images: getProductImages(2),
+    video: getProductVideo(2),
+    videos: getProductVideos(2),
+    description: "Master Photoshop layers and essential tools for efficient design workflow and creative management.",
+    detailedDescription: "Deep dive into Photoshop layers with comprehensive training. This course includes 1 video module on layer types, blending modes, masks, and essential tools. Learn workspace organization and efficient design workflow.",
+    category: "Photoshop Fundamentals",
     features: [
-      "Brightness and contrast mastery",
-      "Levels and curves techniques",
-      "Color balance adjustments",
-      "Hue and saturation control",
-      "Professional enhancement practices"
+      "1 detailed video module",
+      "All layer types mastery",
+      "Essential tools techniques",
+      "Workspace organization basics",
+      "Blending modes understanding"
     ],
     specifications: {
-      "Duration": "8 minutes 52 seconds",
+      "Duration": "8 minutes",
+      "Videos": "1 module",
       "Level": "Beginner",
-      "Focus": "Image Adjustments & Color",
-      "Tools": "Levels, curves, brightness, contrast",
-      "Access": "10 months",
-      "Bonus": "Adjustment presets library"
+      "Focus": "Layers & Essential Tools",
+      "Access": "8 months"
     },
     inStock: true
   },
   {
     id: 4,
-    name: "Making Selections",
-    price: 29.99,
-    image: getProductImage(4),
-    images: getProductImages(4),
-    video: getProductVideo(4),
-    description: "Master Photoshop selection tools - the foundation of all photo editing and design workflows.",
-    detailedDescription: "Learn the essential Photoshop selection techniques that form the foundation of all photo editing workflows. Master marquee tools, lasso tools, and magic wand through proven selection patterns used by professional designers worldwide.",
-    category: "Selection Tools",
+    name: "Basic Image Adjustments",
+    price: 9.99,
+    image: getProductImage(3),
+    images: getProductImages(3),
+    video: getProductVideo(3),
+    videos: getProductVideos(3),
+    description: "Learn essential Photoshop image adjustments for effective photo enhancement and color correction.",
+    detailedDescription: "Master Photoshop image adjustments with comprehensive training. This course includes 1 video module covering brightness/contrast, levels, curves, and color balance for professional photo enhancement.",
+    category: "Photo Editing",
     features: [
-      "Marquee tools mastery",
-      "Lasso selection techniques",
-      "Magic wand precision",
-      "Quick selection methods",
-      "Professional selection patterns"
+      "1 comprehensive video module",
+      "Brightness and contrast mastery",
+      "Levels and curves techniques",
+      "Color balance adjustments",
+      "Hue and saturation control"
     ],
     specifications: {
-      "Duration": "17 minutes 24 seconds",
-      "Level": "Intermediate", 
-      "Focus": "Selection tools, precision editing",
-      "Techniques": "Marquee, lasso, magic wand, quick select",
-      "Access": "8 months",
-      "Bonus": "Selection technique templates"
+      "Duration": "10 minutes",
+      "Videos": "1 module",
+      "Level": "Beginner",
+      "Focus": "Image Adjustments & Color",
+      "Access": "10 months"
     },
     inStock: true
   },
   {
     id: 5,
-    name: "All About Layers",
-    price: 39.99,
-    image: getProductImage(5),
-    images: getProductImages(5),
-    video: getProductVideo(5),
-    videos: getProductVideos(5),
-    description: "Master Photoshop layers for efficient design workflow and build your first creative project.",
-    detailedDescription: "Master the powerful Photoshop layer system with comprehensive training. This course includes 3 detailed video modules covering layer types, blend modes, layer masks, and building your first creative project with professional design techniques used by industry designers.",
-    category: "Layers & Workflow",
+    name: "Making Selections",
+    price: 19.99,
+    image: getProductImage(4),
+    images: getProductImages(4),
+    video: getProductVideo(4),
+    videos: getProductVideos(4),
+    description: "Master Photoshop selection tools - the foundation of all photo editing and design workflows.",
+    detailedDescription: "Learn essential Photoshop selection techniques. This course includes 1 video module covering marquee tools, lasso tools, magic wand, and quick selection methods used by professional designers.",
+    category: "Selection Tools",
     features: [
-      "3 comprehensive video modules",
-      "Layer types and blend modes mastery",
-      "Layer mask optimization",
-      "Creative project development",
-      "Industry-standard workflows",
-      "Live design exercises"
+      "1 detailed video module",
+      "Marquee tools mastery",
+      "Lasso selection techniques",
+      "Magic wand precision",
+      "Quick selection methods"
     ],
     specifications: {
-      "Duration": "7 minutes 44 seconds",
-      "Videos": "3 comprehensive modules",
-      "Level": "Advanced",
-      "Focus": "Layers, blend modes, creative workflow",
-      "Projects": "Live design exercises",
-      "Access": "10 months",
-      "Bonus": "Layer workflow templates"
+      "Duration": "12 minutes",
+      "Videos": "1 module",
+      "Level": "Intermediate", 
+      "Focus": "Selection tools, precision editing",
+      "Access": "8 months"
     },
     inStock: true
   },
   {
     id: 6,
-    name: "Effects & Layer Styles",
-    price: 49.99,
-    image: getProductImage(6),
-    images: getProductImages(6),
-    video: getProductVideo(6),
-    videos: getProductVideos(6),
-    description: "Learn Photoshop effects and layer styles - essential for creating stunning visual effects and professional designs.",
-    detailedDescription: "Master Photoshop effects and layer styles with comprehensive training. This course includes 3 detailed video modules covering drop shadows, glows, bevels, and professional effect applications for stunning design.",
-    category: "Effects & Styles",
+    name: "All About Layers",
+    price: 29.99,
+    image: getProductImage(5),
+    images: getProductImages(5),
+    video: getProductVideo(5),
+    videos: getProductVideos(5),
+    description: "Master Photoshop layers for efficient design workflow and build your first creative project.",
+    detailedDescription: "Master the powerful Photoshop layer system. This course includes 2 comprehensive video modules covering layer types, blend modes, layer masks, and building creative projects with professional techniques.",
+    category: "Layers & Workflow",
     features: [
-      "3 detailed video modules",
-      "Drop shadow mastery",
-      "Glow and bevel techniques",
-      "Layer style combinations",
-      "Professional effect workflows",
-      "Live design examples"
+      "2 comprehensive video modules",
+      "Layer types and blend modes mastery",
+      "Layer mask optimization",
+      "Creative project development",
+      "Industry-standard workflows"
     ],
     specifications: {
-      "Duration": "10 minutes 43 seconds",
-      "Videos": "3 detailed modules",
+      "Duration": "15 minutes",
+      "Videos": "2 modules",
       "Level": "Intermediate",
-      "Focus": "Effects, layer styles, visual design",
-      "Applications": "Shadows, glows, bevels, textures",
-      "Access": "12 months",
-      "Support": "Effect preset library"
+      "Focus": "Layers, blend modes, creative workflow",
+      "Access": "10 months"
     },
     inStock: true
   },
   {
     id: 7,
-    name: "Brushes",
-    price: 59.99,
-    image: getProductImage(7),
-    images: getProductImages(7),
-    video: getProductVideo(7),
-    videos: getProductVideos(7),
-    description: "Master advanced Photoshop brush techniques including custom brushes, painting, and digital art creation.",
-    detailedDescription: "Master advanced Photoshop brushes with comprehensive training on brush settings, custom brushes, and digital painting. This course includes 3 detailed video modules covering brush creation, painting techniques, and advanced brush applications for professional digital art.",
-    category: "Digital Painting",
+    name: "Effects & Layer Styles",
+    price: 39.99,
+    image: getProductImage(6),
+    images: getProductImages(6),
+    video: getProductVideo(6),
+    videos: getProductVideos(6),
+    description: "Learn Photoshop effects and layer styles - essential for creating stunning visual effects and professional designs.",
+    detailedDescription: "Master Photoshop effects and layer styles. This course includes 2 detailed video modules covering drop shadows, glows, bevels, and professional effect applications for stunning designs.",
+    category: "Effects & Styles",
     features: [
-      "3 comprehensive video modules",
-      "Custom brush creation mastery",
-      "Advanced painting techniques",
-      "Brush settings optimization",
-      "Professional digital art workflows",
-      "Digital painting mastery"
+      "2 detailed video modules",
+      "Drop shadow mastery",
+      "Glow and bevel techniques",
+      "Layer style combinations",
+      "Professional effect workflows"
     ],
     specifications: {
-      "Duration": "18 minutes 22 seconds",
-      "Videos": "3 detailed modules",
+      "Duration": "18 minutes",
+      "Videos": "2 modules",
       "Level": "Intermediate",
-      "Focus": "Brushes, digital painting, custom tools",
-      "Applications": "Custom brushes, painting, digital art",
-      "Access": "12 months",
-      "Bonus": "Custom brush library"
+      "Focus": "Effects, layer styles, visual design",
+      "Access": "12 months"
     },
     inStock: true
   },
   {
     id: 8,
-    name: "Retouching Basics",
-    price: 69.99,
-    image: getProductImage(8),
-    images: getProductImages(8),
-    video: getProductVideo(8),
-    videos: getProductVideos(8),
-    description: "Master Photoshop retouching techniques with comprehensive training on photo restoration, skin retouching, and image cleanup.",
-    detailedDescription: "Master Photoshop retouching with comprehensive training. This course includes 5 detailed video modules covering spot healing, clone stamp, patch tool, frequency separation, and professional retouching workflows for flawless photo editing.",
-    category: "Photo Retouching",
+    name: "Brushes & Digital Painting",
+    price: 49.99,
+    image: getProductImage(7),
+    images: getProductImages(7),
+    video: getProductVideo(7),
+    videos: getProductVideos(7),
+    description: "Master advanced Photoshop brush techniques including custom brushes, painting, and digital art creation.",
+    detailedDescription: "Master advanced Photoshop brushes. This course includes 2 comprehensive video modules covering brush settings, custom brushes, and digital painting techniques for professional digital art.",
+    category: "Digital Painting",
     features: [
-      "5 detailed video modules",
-      "Spot healing fundamentals",
-      "Clone stamp mastery",
-      "Patch tool techniques",
-      "Frequency separation methods",
-      "Professional retouching workflows"
+      "2 comprehensive video modules",
+      "Custom brush creation mastery",
+      "Advanced painting techniques",
+      "Brush settings optimization",
+      "Professional digital art workflows"
     ],
     specifications: {
-      "Duration": "6 minutes 8 seconds",
-      "Videos": "5 detailed modules",
-      "Level": "Advanced",
-      "Focus": "Retouching, photo restoration, cleanup",
-      "Techniques": "Healing, cloning, frequency separation",
-      "Access": "12 months",
-      "Bonus": "Retouching action library"
+      "Duration": "22 minutes",
+      "Videos": "2 modules",
+      "Level": "Intermediate",
+      "Focus": "Brushes, digital painting, custom tools",
+      "Access": "12 months"
     },
     inStock: true
   },
   {
     id: 9,
-    name: "Working with Type",
-    price: 79.99,
-    image: getProductImage(9),
-    images: getProductImages(9),
-    video: getProductVideo(9),
-    videos: getProductVideos(9),
-    description: "Master advanced Photoshop typography and text effects for dynamic design and professional layouts.",
-    detailedDescription: "Master advanced Photoshop typography with comprehensive training. This premium course includes 5 comprehensive video modules covering text tools, character formatting, paragraph styling, text effects, and professional typography techniques.",
-    category: "Typography & Text",
+    name: "Retouching Basics",
+    price: 59.99,
+    image: getProductImage(8),
+    images: getProductImages(8),
+    video: getProductVideo(8),
+    videos: getProductVideos(8),
+    description: "Master Photoshop retouching techniques with comprehensive training on photo restoration, skin retouching, and image cleanup.",
+    detailedDescription: "Master Photoshop retouching. This course includes 3 detailed video modules covering spot healing, clone stamp, patch tool, and professional retouching workflows for flawless photo editing.",
+    category: "Photo Retouching",
     features: [
-      "5 comprehensive video modules",
-      "Text tools mastery",
-      "Character formatting techniques",
-      "Paragraph styling methods",
-      "Professional text effects",
-      "Typography workflow optimization"
+      "3 detailed video modules",
+      "Spot healing fundamentals",
+      "Clone stamp mastery",
+      "Patch tool techniques",
+      "Professional retouching workflows"
     ],
     specifications: {
-      "Duration": "23 minutes 53 seconds",
-      "Videos": "5 comprehensive modules",
-      "Level": "Advanced",
-      "Focus": "Typography, text effects, professional layouts",
-      "Techniques": "Text styling, effects, formatting",
-      "Access": "15 months",
-      "Bonus": "Typography templates library"
+      "Duration": "25 minutes",
+      "Videos": "3 modules",
+      "Level": "Intermediate",
+      "Focus": "Retouching, photo restoration, cleanup",
+      "Access": "12 months"
     },
     inStock: true
   },
   {
     id: 10,
-    name: "Masking",
-    price: 89.99,
-    image: getProductImage(10),
-    images: getProductImages(10),
-    video: getProductVideo(10),
-    videos: getProductVideos(10),
-    description: "Master practical Photoshop masking techniques and advanced compositing for real-world design applications.",
-    detailedDescription: "Master practical Photoshop masking with comprehensive training on advanced masking techniques. This premium course includes 5 detailed video modules covering layer masks, clipping masks, vector masks, and professional compositing techniques for creating seamless designs.",
-    category: "Masking & Compositing",
+    name: "Working with Type",
+    price: 69.99,
+    image: getProductImage(9),
+    images: getProductImages(9),
+    video: getProductVideo(9),
+    videos: getProductVideos(9),
+    description: "Master advanced Photoshop typography and text effects for dynamic design and professional layouts.",
+    detailedDescription: "Master advanced Photoshop typography. This course includes 3 comprehensive video modules covering text tools, character formatting, paragraph styling, and professional typography techniques.",
+    category: "Typography & Text",
     features: [
-      "5 detailed video modules",
-      "Layer mask mastery",
-      "Clipping mask techniques",
-      "Vector mask applications",
-      "Professional compositing workflows",
-      "Advanced selection refinement"
+      "3 comprehensive video modules",
+      "Text tools mastery",
+      "Character formatting techniques",
+      "Paragraph styling methods",
+      "Professional text effects"
     ],
     specifications: {
-      "Duration": "7 minutes 19 seconds",
-      "Videos": "5 detailed modules", 
+      "Duration": "28 minutes",
+      "Videos": "3 modules",
       "Level": "Advanced",
-      "Focus": "Masking, compositing, advanced selections",
-      "Techniques": "Layer masks, clipping, compositing",
-      "Access": "15 months",
-      "Bonus": "Masking workflow templates"
+      "Focus": "Typography, text effects, professional layouts",
+      "Access": "15 months"
     },
     inStock: true
   },
   {
     id: 11,
-    name: "Complete Photoshop Mastery + Smart Objects & Compositing",
-    price: 99.99,
+    name: "Masking Techniques",
+    price: 79.99,
+    image: getProductImage(10),
+    images: getProductImages(10),
+    video: getProductVideo(10),
+    videos: getProductVideos(10),
+    description: "Master practical Photoshop masking techniques and advanced compositing for real-world design applications.",
+    detailedDescription: "Master practical Photoshop masking. This premium course includes 3 detailed video modules covering layer masks, clipping masks, vector masks, and professional compositing techniques for seamless designs.",
+    category: "Masking & Compositing",
+    features: [
+      "3 detailed video modules",
+      "Layer mask mastery",
+      "Clipping mask techniques",
+      "Vector mask applications",
+      "Professional compositing workflows"
+    ],
+    specifications: {
+      "Duration": "32 minutes",
+      "Videos": "3 modules", 
+      "Level": "Advanced",
+      "Focus": "Masking, compositing, advanced selections",
+      "Access": "15 months"
+    },
+    inStock: true
+  },
+  {
+    id: 12,
+    name: "Smart Objects & Advanced Techniques",
+    price: 89.99,
     image: getProductImage(11),
     images: getProductImages(11),
     video: getProductVideo(11),
     videos: getProductVideos(11),
-    description: "Master all aspects of Photoshop plus advanced Smart Objects and AI-powered compositing techniques.",
-    detailedDescription: "Achieve complete Photoshop mastery with comprehensive training plus advanced techniques. This premium course includes 8 comprehensive video modules covering all Photoshop fundamentals, Smart Objects, image sizing, file formats, AI compositing, and professional workflows used by successful designers worldwide.",
-    category: "Complete Mastery",
+    description: "Master Smart Objects, filters, and advanced Photoshop techniques for non-destructive editing workflows.",
+    detailedDescription: "Master Smart Objects and advanced techniques. This premium course includes 4 comprehensive video modules covering Smart Objects, smart filters, non-destructive editing, and professional advanced workflows.",
+    category: "Advanced Techniques",
     features: [
-      "8 comprehensive video modules",
-      "Complete Photoshop mastery",
-      "All design fundamentals covered",
-      "Smart Objects techniques",
-      "AI-powered compositing methods",
-      "Professional workflow optimization",
-      "Advanced design techniques",
-      "Real-world project mastery"
+      "4 comprehensive video modules",
+      "Smart Objects mastery",
+      "Smart filters techniques",
+      "Non-destructive editing workflows",
+      "Advanced design methods"
     ],
     specifications: {
-      "Duration": "Multiple hours coverage",
-      "Videos": "8 comprehensive modules",
+      "Duration": "35 minutes",
+      "Videos": "4 modules",
+      "Level": "Advanced",
+      "Focus": "Smart Objects, advanced techniques",
+      "Access": "18 months"
+    },
+    inStock: true
+  },
+  {
+    id: 13,
+    name: "Color Grading & Correction Mastery",
+    price: 99.99,
+    image: getProductImage(12),
+    images: getProductImages(12),
+    video: getProductVideo(12),
+    videos: getProductVideos(12),
+    description: "Master professional color grading and correction techniques for cinematic photo and video editing.",
+    detailedDescription: "Master professional color grading. This premium course includes 4 detailed video modules covering color theory, grading techniques, correction methods, and cinematic color workflows.",
+    category: "Color Grading",
+    features: [
+      "4 detailed video modules",
+      "Color theory fundamentals",
+      "Professional grading techniques",
+      "Color correction mastery",
+      "Cinematic color workflows"
+    ],
+    specifications: {
+      "Duration": "24 minutes",
+      "Videos": "4 modules",
+      "Level": "Advanced",
+      "Focus": "Color grading, correction, cinematic",
+      "Access": "18 months"
+    },
+    inStock: true
+  },
+  {
+    id: 14,
+    name: "Photo Manipulation & Compositing Pro",
+    price: 109.99,
+    image: getProductImage(13),
+    images: getProductImages(13),
+    video: getProductVideo(13),
+    videos: getProductVideos(13),
+    description: "Master advanced photo manipulation and compositing techniques for creating stunning surreal and fantasy artwork.",
+    detailedDescription: "Master advanced photo manipulation. This premium course includes 4 comprehensive video modules covering advanced compositing, photo manipulation, blending techniques, and surreal artwork creation.",
+    category: "Photo Manipulation",
+    features: [
+      "4 comprehensive video modules",
+      "Advanced compositing mastery",
+      "Photo manipulation techniques",
+      "Seamless blending methods",
+      "Surreal artwork creation"
+    ],
+    specifications: {
+      "Duration": "28 minutes",
+      "Videos": "4 modules",
       "Level": "Expert",
-      "Coverage": "All Photoshop + advanced compositing",
-      "Skills": "Complete Photoshop & design mastery", 
-      "Access": "18 months",
-      "Bonus": "Complete Photoshop toolkit & design templates"
+      "Focus": "Manipulation, compositing, surreal art",
+      "Access": "20 months"
+    },
+    inStock: true
+  },
+  {
+    id: 15,
+    name: "3D Design & Mockups in Photoshop",
+    price: 119.99,
+    image: getProductImage(1),
+    images: getProductImages(1),
+    video: getProductVideo(1),
+    videos: getProductVideos(15),
+    description: "Master 3D design, mockup creation, and product visualization in Photoshop for professional presentations.",
+    detailedDescription: "Master 3D design in Photoshop. This premium course includes 4 detailed video modules covering 3D tools, mockup creation, product visualization, and professional presentation techniques.",
+    category: "3D Design",
+    features: [
+      "4 detailed video modules",
+      "3D tools mastery",
+      "Mockup creation techniques",
+      "Product visualization methods",
+      "Professional presentation skills"
+    ],
+    specifications: {
+      "Duration": "32 minutes",
+      "Videos": "4 modules",
+      "Level": "Expert",
+      "Focus": "3D design, mockups, visualization",
+      "Access": "20 months"
+    },
+    inStock: true
+  },
+  {
+    id: 16,
+    name: "Web Design & UI/UX in Photoshop",
+    price: 129.99,
+    image: getProductImage(1),
+    images: getProductImages(1),
+    video: getProductVideo(1),
+    videos: getProductVideos(16),
+    description: "Master web design, UI/UX principles, and modern interface design in Photoshop for digital products.",
+    detailedDescription: "Master web design and UI/UX. This premium course includes 5 comprehensive video modules covering web design principles, UI/UX design, interface creation, and modern digital product design.",
+    category: "Web & UI Design",
+    features: [
+      "5 comprehensive video modules",
+      "Web design fundamentals",
+      "UI/UX principles mastery",
+      "Interface design techniques",
+      "Modern digital product design"
+    ],
+    specifications: {
+      "Duration": "36 minutes",
+      "Videos": "5 modules",
+      "Level": "Expert",
+      "Focus": "Web design, UI/UX, interfaces",
+      "Access": "24 months"
+    },
+    inStock: true
+  },
+  {
+    id: 17,
+    name: "Complete Photoshop Master Class - All Techniques",
+    price: 139.99,
+    image: getProductImage(1),
+    images: getProductImages(1),
+    video: getProductVideo(1),
+    videos: getProductVideos(17),
+    description: "Ultimate Photoshop mastery course covering all techniques, tools, and professional workflows from beginner to expert level.",
+    detailedDescription: "Achieve ultimate Photoshop mastery. This complete master class includes 5 comprehensive video modules covering all Photoshop techniques, tools, and professional workflows from fundamentals to expert-level skills.",
+    category: "Complete Mastery",
+    features: [
+      "5 comprehensive video modules",
+      "Complete Photoshop mastery",
+      "All techniques and tools covered",
+      "Beginner to expert progression",
+      "Professional workflow optimization",
+      "Real-world project mastery",
+      "Industry best practices"
+    ],
+    specifications: {
+      "Duration": "40 minutes",
+      "Videos": "5 modules",
+      "Level": "All Levels - Beginner to Expert",
+      "Coverage": "Complete Photoshop mastery",
+      "Access": "Lifetime access (24+ months)"
     },
     inStock: true
   }
